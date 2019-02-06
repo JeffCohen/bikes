@@ -1,0 +1,21 @@
+<% station = DivvyStation.find_nearest_station(params['address']) %>
+
+<% if station %>
+  <div class="page-header">
+    <h1><%= link_to 'Divvy Stations', root_url %>
+      <small><%= station['name'] %></small>
+    </h1>
+  </div>
+
+
+  <%= show_map(station['latitidue'], station['longitude']) %>
+
+<% else %>
+
+  <div class="page-header">
+    <h1><%= link_to 'Divvy Stations', root_url %></h1>
+  </div>
+
+  <h3>No station found near <%= params['address'] %>.</h3>
+
+<% end %>

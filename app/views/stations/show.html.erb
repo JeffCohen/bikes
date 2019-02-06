@@ -1,0 +1,22 @@
+<% station = DivvyStation.all.find { |station| station['id'] == params['id'].to_i } %>
+
+<% if station %>
+  <div class="page-header">
+    <h1><%= link_to 'Divvy Stations', root_url %>
+      <small><%= station['name'] %></small>
+    </h1>
+    <h4><%= pluralize station['availableBikes'], 'bike' %> available.</h4>
+  </div>
+
+
+  <%= show_map(station['latitidue'], station['longitude']) %>
+
+<% else %>
+
+  <div class="page-header">
+    <h1><%= link_to 'Divvy Stations', root_url %></h1>
+  </div>
+
+  <h3>No station found with ID <%= params['id'] %>.</h3>
+
+<% end %>
