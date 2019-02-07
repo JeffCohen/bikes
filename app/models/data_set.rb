@@ -13,8 +13,10 @@ class DataSet < ApplicationRecord
   end
 
   def refresh!
-    self.update data: open(self.url).read
+    self.update data: transform(open(self.url).read)
     self
   end
 
+  def transform(raw_json)
+    return raw_json unless self.name == 'swapi'
 end

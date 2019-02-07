@@ -16,9 +16,7 @@
       <tbody>
         <% @stations.each do |station| %>
           <tr>
-            <td><%= link_to station['id'], "/stations/#{station['id']}" %></td>
-            <td><%= link_to station['name'], "/stations/#{station['id']}" %></td>
-            <td class="text-center"><%= station['availableBikes'] %></td>
+            <td><%= station['name'] %></td>
           </tr>
         <% end %>
       </tbody>
