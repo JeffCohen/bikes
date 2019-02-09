@@ -1,3 +1,5 @@
+require 'net/http'
+
 class SwapiController < ApplicationController
 
   def show
@@ -51,7 +53,7 @@ class SwapiController < ApplicationController
         if data.blank?
           url = "https://swapi.co/api/#{things}/"
           uri = URI(url)
-          response = Net::HTTP.get(uri)
+          response = ::Net::HTTP.get(uri)
           data = JSON.parse(response)['results']
           data.each_with_index do |thing, index|
             thing_url = thing['url'].split('/api/').last.chop
