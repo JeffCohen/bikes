@@ -19,7 +19,7 @@ class SwapiController < ApplicationController
           thing_url = thing['url'].split('/api/').last.chop
           thing_id = thing_url.sub('/','-')
           thing_url = "/swapi/#{thing_url}.json"
-          thing['id'] = id
+          thing['id'] = thing_id
           thing['url'] = thing_url
           %w(species characters vehicles people starships planets films).each do |subthing|
             if thing[subthing]
