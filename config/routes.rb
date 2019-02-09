@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get '/stations/search' => 'stations#search'
   # get '/stations/:id' => 'stations#show'
 
-  get '/swapi/:things/' => 'swapi#index'
-  get '/swapi/:things/:id' => 'swapi#show'
+  get '/swapi/:things/' => 'swapi#index', defaults: { format: 'json' }
+  get '/swapi/:things/:id' => 'swapi#show', defaults: { format: 'json' }
 
 end
